@@ -1,0 +1,149 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Cloudinary",
+    "description": "Cloudinary"
+  },
+  "host": "api.cloudinary.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1_1/{cloudName}/image/upload": {
+      "post": {
+        "summary": "Upload",
+        "description": "Upload",
+        "operationId": "Upload",
+        "parameters": [
+          {
+            "name": "cloudName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "folder": {
+                  "type": "string",
+                  "description": "An optional folder name where the uploaded asset will be stored. The public ID contains the full path of the uploaded asset, including the folder name.",
+                  "title": "folder",
+                  "x-ms-visibility": "advanced"
+                },
+                "public_id": {
+                  "type": "string",
+                  "description": "The identifier that is used for accessing the uploaded asset. The Public ID may contain a full path including folders separated by a slash (/). If not specified, then the Public ID of the asset will either be comprised of random characters or will use the original file's filename",
+                  "title": "public_id",
+                  "x-ms-visibility": "advanced"
+                },
+                "file": {
+                  "type": "string",
+                  "description": "The file to upload. The Data URI (Base64 encoded), max ~60 MB (62,910,000 chars)",
+                  "title": "file",
+                  "format": "string",
+                  "x-ms-visibility": "important"
+                },
+                "upload_preset": {
+                  "type": "string",
+                  "description": "Name of an upload preset that you defined for your Cloudinary account. An upload preset consists of upload parameters centrally managed using the Admin API or from the settings page of the management console.",
+                  "title": "upload_preset",
+                  "x-ms-visibility": "important"
+                },
+                "tags": {
+                  "type": "string",
+                  "description": "A comma-separated list of tag names to assign to the uploaded asset for later group reference. For example: animal,dog",
+                  "title": "tags",
+                  "x-ms-visibility": "advanced"
+                }
+              },
+              "required": [
+                "file",
+                "upload_preset"
+              ]
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "description": "",
+              "title": "body",
+              "type": "string",
+              "x-ms-visibility": "important"
+            }
+          }
+        }
+      }
+    },
+    "/v1_1/{cloudName}/resources/search": {
+      "get": {
+        "summary": "Search",
+        "description": "Search",
+        "operationId": "Search",
+        "parameters": [
+          {
+            "name": "cloudName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expression",
+            "default": "tags=ID1",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "x-ms-visibility": "important"
+          },
+          {
+            "name": "with_field",
+            "default": "tags",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "max_results",
+            "default": 500,
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "x-ms-visibility": "advanced"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "basic_auth": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "tags": []
+}
