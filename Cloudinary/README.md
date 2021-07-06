@@ -1,5 +1,8 @@
 #Cloudinary Connector
 
+![image](https://user-images.githubusercontent.com/1761348/124588427-74573b80-de61-11eb-922d-8a8761ec4f7b.png)
+
+
 Basic connector to upload image with preset transformation into the Cloudinary.
 
       Upload Action
