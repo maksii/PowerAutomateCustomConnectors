@@ -76,12 +76,7 @@
         "responses": {
           "200": {
             "description": "200",
-            "schema": {
-              "description": "",
-              "title": "body",
-              "type": "string",
-              "x-ms-visibility": "important"
-            }
+            "schema": {}
           }
         }
       }
