@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Cloudinary",
-    "description": "Cloudinary"
+    "description": "Cloudinary API Custom Connector"
   },
   "host": "api.cloudinary.com",
   "basePath": "/",
@@ -74,9 +74,105 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                  "error": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          }
+                      }
+                  }
+              }
+          }
+        },
+        "400": {
+          "description": "400",
+          "schema": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+      },
           "200": {
             "description": "200",
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "asset_id": {
+                  "type": "string"
+                },
+                "public_id": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "integer"
+                },
+                "version_id": {
+                  "type": "string"
+                },
+                "signature": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "format": {
+                  "type": "string"
+                },
+                "resource_type": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "bytes": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "etag": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "boolean"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "secure_url": {
+                  "type": "string"
+                },
+                "access_mode": {
+                  "type": "string"
+                },
+                "existing": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         }
       }
@@ -121,9 +217,135 @@
         "responses": {
           "200": {
             "description": "200",
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                  "total_count": {
+                      "type": "integer"
+                  },
+                  "time": {
+                      "type": "integer"
+                  },
+                  "resources": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "asset_id": {
+                                  "type": "string"
+                              },
+                              "public_id": {
+                                  "type": "string"
+                              },
+                              "folder": {
+                                  "type": "string"
+                              },
+                              "filename": {
+                                  "type": "string"
+                              },
+                              "format": {
+                                  "type": "string"
+                              },
+                              "version": {
+                                  "type": "integer"
+                              },
+                              "resource_type": {
+                                  "type": "string"
+                              },
+                              "type": {
+                                  "type": "string"
+                              },
+                              "created_at": {
+                                  "type": "string"
+                              },
+                              "uploaded_at": {
+                                  "type": "string"
+                              },
+                              "bytes": {
+                                  "type": "integer"
+                              },
+                              "backup_bytes": {
+                                  "type": "integer"
+                              },
+                              "width": {
+                                  "type": "integer"
+                              },
+                              "height": {
+                                  "type": "integer"
+                              },
+                              "aspect_ratio": {
+                                  "type": "number"
+                              },
+                              "pixels": {
+                                  "type": "integer"
+                              },
+                              "tags": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "string"
+                                  }
+                              },
+                              "url": {
+                                  "type": "string"
+                              },
+                              "secure_url": {
+                                  "type": "string"
+                              },
+                              "status": {
+                                  "type": "string"
+                              },
+                              "access_mode": {
+                                  "type": "string"
+                              },
+                              "access_control": {},
+                              "etag": {
+                                  "type": "string"
+                              },
+                              "created_by": {},
+                              "uploaded_by": {}
+                          },
+                          "required": [
+                              "url",
+                              "secure_url"
+                          ]
+                      }
+                  }
+              }
           }
+          },
+          "500": {
+            "description": "500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                  "error": {
+                      "type": "object",
+                      "properties": {
+                          "message": {
+                              "type": "string"
+                          }
+                      }
+                  }
+              }
+          }
+        },
+        "400": {
+          "description": "400",
+          "schema": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
+      }
+      }
       }
     }
   },
