@@ -5,15 +5,15 @@
     "description": "Custom connector with dummy request to generate Hash based on .Net Cryptography",
     "version": "1.0"
   },
-  "host": "api.coindesk.com",
-  "basePath": "/v1/bpi/",
+  "host": "logiqapps.com",
+  "basePath": "/",
   "schemes": [
     "https"
   ],
   "consumes": [],
   "produces": [],
   "paths": {
-    "/currentprice.json": {
+    "/api": {
       "get": {
         "responses": {
           "default": {
@@ -35,11 +35,10 @@
           },
           {
             "name": "type",
-            "default": "",
             "in": "query",
             "type": "string",
             "required": false,
-            "x-ms-visibility": "advanced"
+            "x-ms-visibility": "important"
           }
         ],
         "description": "Hash input value"
