@@ -1,0 +1,55 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Custom Cryptography",
+    "description": "Custom connector with dummy request to generate Hash based on .Net Cryptography",
+    "version": "1.0"
+  },
+  "host": "api.coindesk.com",
+  "basePath": "/v1/bpi/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/currentprice.json": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "operationId": "Hash",
+        "x-ms-visibility": "important",
+        "summary": "Hash",
+        "parameters": [
+          {
+            "name": "string",
+            "default": "",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "x-ms-visibility": "important"
+          },
+          {
+            "name": "type",
+            "default": "",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "x-ms-visibility": "advanced"
+          }
+        ],
+        "description": "Hash input value"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
